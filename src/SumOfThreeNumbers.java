@@ -16,8 +16,8 @@ public class SumOfThreeNumbers {
 
         int sum = first + second + third;
         int product = first * second * third;
-        // We have to use 3.0 instead of 3 since 3 is an integer and dividing two integers discards the decimal
-        // 3.0 is a double so it keeps the decimal
+        // We have to use 3.0 instead of 3 since 3 is an integer and dividing two integers discards the decimal.
+        // 3.0 is a double so it keeps the decimal.
         double average = sum / 3.0;
 
         System.out.println("The sum of the numbers is " + sum);
