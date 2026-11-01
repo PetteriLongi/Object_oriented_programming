@@ -37,13 +37,19 @@ public class Car {
     /* Implementations of some methods.
      * Note that methods refer to and change instance variable values.
      */
-    public void accelerate() {
-        if (gasolineLevel > 0)
-            speed += 10;
-        else
-            speed = 0;
+    protected void consumeGasoline(double amount) {
+        gasolineLevel = Math.max(0, gasolineLevel - amount);
     }
-    void decelerate(int amount) {
+
+    public void accelerate() {
+        if (gasolineLevel > 0) {
+            speed += 10;
+            consumeGasoline(1);
+        } else {
+            speed = 0;
+        }
+    }
+    public void decelerate(int amount) {
         if (gasolineLevel > 0) {
             if (amount > 0)
                 speed = Math.max(0, speed - amount);
@@ -59,7 +65,7 @@ public class Car {
     void fillTank() {
         gasolineLevel = tankCapacity;
     }
-    double getGasolineLevel() {
+    public double getGasolineLevel() {
         return gasolineLevel;
     }
 
